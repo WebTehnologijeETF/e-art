@@ -18,11 +18,13 @@ html {
 	background-size: 100% 100%;
 	height: 60px;
 	padding-left: 7.5%;
+	padding-right: 7.5%;
 	color: black;
 	font-size: 25px;
 	margin-left: -1%;
 	margin-right: -1%;
 	padding-top: .5%;
+	margin-bottom: 5%;
 }
 
 div.main-menu a {
@@ -39,4 +41,46 @@ div.main-menu a:hover {
 div.main-container {
 	margin-left: 15%;
 	width: 70%;
+}
+
+div.to-top {
+	position: fixed;
+	bottom: 1%;
+	right: 1%;
+}
+
+div.to-top a {
+	text-decoration: none;
+	color: black;
+}
+
+div.to-top a:hover {
+	text-decoration: none;
+	color: #3284DB;	
+}
+
+.go-up-img {
+	width: 30px;
+	height: 30px;
+}
+
+.main-container {
+	margin-top: 2.5%;
+}
+
+.menu-buttons {
+	float: right;
+	cursor: pointer;
+}
+
+.menu-button {
+	margin-right: 20px;
+}
+
+.menu-button:hover {
+	color: white;
+}
+
+menu-buttons menu-button a {
+	color: red;
 }

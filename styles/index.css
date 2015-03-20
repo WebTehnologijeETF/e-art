@@ -1,0 +1,99 @@
+.index-navigation {
+	width: 100%;
+	height: 5%;
+	//margin-left: 25%;
+	text-align: center;
+	font-size: 30px;
+	//color: #3284DB;
+	margin-bottom: 5%;
+}
+
+.index-navigation-title {
+	width: 80%;
+}
+
+.index-navigation-left-arrow {
+	height: 50px;
+	width: 10%;
+	margin-right: 50px;
+	cursor: pointer;
+	vertical-align: middle;
+}
+
+.index-navigation-right-arrow {
+	height: 50px;
+	width: 10%;
+	margin-left: 50px;
+	cursor: pointer;
+	vertical-align: middle;
+}
+
+.index-main-container {
+	width: 60%;
+	margin-left: 20%;
+	// TODO: footer support
+}
+
+.left-container {
+	width: 49%;
+	height: 500px;
+	float: left;
+	margin-right: 2%;
+}
+
+.items {
+	overflow: auto;
+	height: 500px;
+}
+
+.right-container {
+	width: 49%;
+	float: left;
+}
+
+.index-item {
+	//border: solid 1px black;
+	height: 75px;
+	margin-top: 15px;
+	margin-bottom: 15px;
+	width: 90%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.separator {
+	width: 80%;
+	margin-left: 10%;
+	height: 10px;
+	background: url('../images/index/separator.png') no-repeat;
+}
+
+.index-item-thumbnail {
+	width: 20%;
+	height: 100%;
+	float: left;
+	margin-right: 2.5%;
+	//border: 5px solid blue;
+	border-radius: 10px;
+}
+
+.index-item-text {
+	width: 77.5%;
+}
+
+.index-item-title {
+	font-size: 25px;
+	color: #3284DB;
+}
+
+.index-item-author {
+	
+}
+
+.index-item-description {
+	font-size: 15px;
+	color: gray;
+}
+
+.index-item-more-details {
+}

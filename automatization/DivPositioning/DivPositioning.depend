@@ -1,9 +1,17 @@
 # depslib dependency file v1.0
-1427243742 source:c:\users\faruk\desktop\faruk\linux merge\faruk\uni\6\wt\e-art\automatization\divpositioning\main.cpp
+1427287924 source:c:\users\faruk\desktop\faruk\linux merge\faruk\uni\6\wt\e-art\automatization\divpositioning\main.cpp
 	<iostream>
 	<fstream>
 	<cstdlib>
 	<ctime>
 	<sstream>
 	<algorithm>
+	"faruk.h"
+
+1427284319 c:\users\faruk\desktop\faruk\linux merge\faruk\uni\6\wt\e-art\automatization\divpositioning\faruk.h
+	<iostream>
+	<vector>
+	<algorithm>
+	<ctime>
+	<cmath>
 

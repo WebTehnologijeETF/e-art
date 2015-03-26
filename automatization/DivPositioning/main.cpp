@@ -16,9 +16,13 @@ using namespace std;
 
 
 string random_color() {
-    #define COLOR_NUM 11
-    string colors[COLOR_NUM] =
-        {"#1D70CF", "#E03DE0", "#63B510", "#384D0F", "#7419CF", "#992295", "#2EBFB8", "#E6F035", "#42450B", "#DE4B9E", "#1ADB2A"};
+    #define COLOR_NUM 16
+    string colors[COLOR_NUM] = {
+        "#1D70CF", "#E03DE0", "#63B510", "#384D0F",
+        "#7419CF", "#992295", "#2EBFB8", "#E6F035",
+        "#42450B", "#DE4B9E", "#1ADB2A", "#0A0F45",
+        "#424523", "#D23B9E", "#23DB2A", "#023445"
+    };
     static unsigned int current_index = 0;
 
     current_index = (current_index + 1) % COLOR_NUM;
@@ -226,7 +230,7 @@ void generate_positioning_files(string format_string, string html_file_name, str
 
     string html_file = "", css_file = "";
     generate_html_header_part(html_file, "Index page", css_file_name);
-    generate_positioning_files_string(html_file, css_file, format_string, use_random_colors, 0, 13);
+    generate_positioning_files_string(html_file, css_file, format_string, use_random_colors, 0, 30);
     generate_html_footer_part(html_file);
 
     ofstream html_file_stream(common_path + "/" + html_file_name.c_str()),
@@ -250,7 +254,12 @@ int main() {
 //r(15){ c(40){  } } \
 //r(15){ c(10){  } c4(10){  } c(30){  } c2(10){  } } \
 //r(60){ c(15){  } c(70){ c(50){ r(25){  } r(5){  } r(70){ r10(20){ c(25){  } c(75){ r(25){  } r(50){  } r(25){  } } } } } c(50){ r(25){  } r(75){ r(10){  } r(90){  } }  } } c(15){  } }";
-            string format_string = "1000px 500 px r(50){ c5(5){ r3(5){  } } c(20){  } }";
+string format_string = "1100px 500px \
+r(70){ c(15){  } \
+c(70){ r(15){ c(25){  } c(50){ r(25){  } r(50){  } r(25){  } } c(25){  } } r(5){  } \
+r(50){ c(1){  } c(98){ r(5){  } r(70){ c(25){  } c(75){ r(25){ c(25){  } c(75){  } } r(50){  } r(25){  } } } r(20){  } r(5){  } } c(1){  } } \
+r(5){  } } \
+c(15){  } }";
 
             //cout << "Enter website format string...\t";
             //cin >> format_string;

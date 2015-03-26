@@ -1,5 +1,5 @@
 .container {
-	height: 1000px;
+	height: 1100px;
 	width: 100%;
 }
 .row {
@@ -10,69 +10,87 @@
 	height: 100%;
 	float: left;
 }
-.el-14 {
-	background-color: #E03DE0;
-}
-.el-15 {
-	background-color: #63B510;
-}
-.el-16 {
-	background-color: #384D0F;
-}
-.el-17 {
-	background-color: #7419CF;
-}
-.el-18 {
-	background-color: #992295;
-}
-.el-19 {
-	background-color: #2EBFB8;
-}
-.el-20 {
-	background-color: #E6F035;
-}
-.el-21 {
-	background-color: #42450B;
-}
-.el-22 {
-	background-color: #DE4B9E;
-}
-.el-23 {
-	background-color: #1ADB2A;
-}
-.el-24 {
-	background-color: #1D70CF;
-}
-.el-25 {
-	background-color: #E03DE0;
-}
-.el-26 {
-	background-color: #63B510;
-}
-.el-27 {
-	background-color: #384D0F;
-}
-.el-28 {
-	background-color: #7419CF;
-}
-.el-29 {
-	background-color: #992295;
-}
-.el-30 {
-	background-color: #2EBFB8;
-}
 .el-31 {
-	background-color: #E6F035;
+	background-color: #E03DE0;
 }
 .el-32 {
-	background-color: #42450B;
+	background-color: #63B510;
 }
 .el-33 {
-	background-color: #DE4B9E;
+	background-color: #384D0F;
 }
 .el-34 {
-	background-color: #1ADB2A;
+	background-color: #7419CF;
 }
 .el-35 {
+	background-color: #992295;
+}
+.el-36 {
+	background-color: #2EBFB8;
+}
+.el-37 {
+	background-color: #E6F035;
+}
+.el-38 {
+	background-color: #42450B;
+}
+.el-39 {
+	background-color: #DE4B9E;
+}
+.el-40 {
+	background-color: #1ADB2A;
+}
+.el-41 {
+	background-color: #0A0F45;
+}
+.el-42 {
+	background-color: #424523;
+}
+.el-43 {
+	background-color: #D23B9E;
+}
+.el-44 {
+	background-color: #23DB2A;
+}
+.el-45 {
+	background-color: #023445;
+}
+.el-46 {
 	background-color: #1D70CF;
+}
+.el-47 {
+	background-color: #E03DE0;
+}
+.el-48 {
+	background-color: #63B510;
+}
+.el-49 {
+	background-color: #384D0F;
+}
+.el-50 {
+	background-color: #7419CF;
+}
+.el-51 {
+	background-color: #992295;
+}
+.el-52 {
+	background-color: #2EBFB8;
+}
+.el-53 {
+	background-color: #E6F035;
+}
+.el-54 {
+	background-color: #42450B;
+}
+.el-55 {
+	background-color: #DE4B9E;
+}
+.el-56 {
+	background-color: #1ADB2A;
+}
+.el-57 {
+	background-color: #0A0F45;
+}
+.el-58 {
+	background-color: #424523;
 }

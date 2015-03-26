@@ -47,71 +47,59 @@ div.main-menu-item a:hover {
 }
 
 .main-site-container {
-	//background-color: #174373;
-	//border: 15px solid transparent;
-	//border-radius: 5px;
-    //border-image: url("../images/index/main-border.png") 30 30 stretch;
-	//box-shadow: 10px 10px 10px #888888;
 }
 
-.list-container {
+.artworks-container {
+	overflow: visible;
 }
 
-.list-title {
-	font-size: 3vw;
+#list-title {
+	font-size: 4vw;
 	text-align: center;
 	color: white;
 }
 
-.list-item-body {
+.artwork-container {
+	color: black;
 	border: solid 3px #737373;
-	border-radius: 10px;
+	border-radius: 15px;
 }
 
-.list-item-body:hover {
+.artwork-container:hover {
 	background-color: black;
 	color: white;
 }
 
-.list-item-image-container {
-	
-}
-
-.list-item-title {
-	font-size: 2vw;
+.artwork-title {
 	color: white;
+	text-align: center;
+	font-size: 3vw;
 }
 
-.list-item-upload-info {
-	font-size: 1vw;
-	color: #A8A8A8;
+.artwork-upload-info {
+	color: #737373;
+	text-align: left;
 }
 
-.list-item-description {
+.artwork-description {
 	font-family: "Oswald";
 }
 
-.list-item-lower-section {
+.artwork-details-link-container {
+	
 }
 
-.list-item-comment-button {
-	background-color: yellow;
+.artwork-details-link-container a {
+	text-decoration: none;
+	color: #737373;
 }
 
-textarea {
+.comment-box-container {
+	
+}
+
+.comment-box-container textarea {
 	width: 100%;
 	height: 100%;
 	font-family: "Oswald";
-	font-size: 0.8vw;
-	border: 1px solid black;
-}
-
-.list-item-details-section {
-	
-}
-
-.list-item-details-section a {
-	text-decoration: none;
-	color: white;
-	font-size: vw;
 }

@@ -1,5 +1,5 @@
-.main-site-container {
-	height: 100%;
+.container {
+	height: 1000px;
 	width: 100%;
 }
 .row {
@@ -11,294 +11,68 @@
 	float: left;
 }
 .el-14 {
-	height: 100%;
 	background-color: #E03DE0;
 }
 .el-15 {
-	width: 15%;
 	background-color: #63B510;
 }
 .el-16 {
-	width: 70%;
 	background-color: #384D0F;
 }
 .el-17 {
-	width: 50%;
 	background-color: #7419CF;
 }
 .el-18 {
-	height: 25%;
 	background-color: #992295;
 }
 .el-19 {
-	height: 5%;
 	background-color: #2EBFB8;
 }
 .el-20 {
-	height: 70%;
 	background-color: #E6F035;
 }
 .el-21 {
-	height: 20%;
-	background-color: #1D70CF;
+	background-color: #42450B;
 }
 .el-22 {
-	width: 25%;
-	background-color: #E03DE0;
+	background-color: #DE4B9E;
 }
 .el-23 {
-	width: 75%;
-	background-color: #63B510;
+	background-color: #1ADB2A;
 }
 .el-24 {
-	height: 25%;
-	background-color: #384D0F;
+	background-color: #1D70CF;
 }
 .el-25 {
-	height: 50%;
-	background-color: #7419CF;
+	background-color: #E03DE0;
 }
 .el-26 {
-	height: 25%;
-	background-color: #992295;
+	background-color: #63B510;
 }
 .el-27 {
-	height: 20%;
-	background-color: #2EBFB8;
+	background-color: #384D0F;
 }
 .el-28 {
-	width: 25%;
-	background-color: #E6F035;
+	background-color: #7419CF;
 }
 .el-29 {
-	width: 75%;
-	background-color: #1D70CF;
+	background-color: #992295;
 }
 .el-30 {
-	height: 25%;
-	background-color: #E03DE0;
+	background-color: #2EBFB8;
 }
 .el-31 {
-	height: 50%;
-	background-color: #63B510;
+	background-color: #E6F035;
 }
 .el-32 {
-	height: 25%;
-	background-color: #384D0F;
+	background-color: #42450B;
 }
 .el-33 {
-	height: 20%;
-	background-color: #7419CF;
+	background-color: #DE4B9E;
 }
 .el-34 {
-	width: 25%;
-	background-color: #992295;
+	background-color: #1ADB2A;
 }
 .el-35 {
-	width: 75%;
-	background-color: #2EBFB8;
-}
-.el-36 {
-	height: 25%;
-	background-color: #E6F035;
-}
-.el-37 {
-	height: 50%;
 	background-color: #1D70CF;
-}
-.el-38 {
-	height: 25%;
-	background-color: #E03DE0;
-}
-.el-39 {
-	height: 20%;
-	background-color: #63B510;
-}
-.el-40 {
-	width: 25%;
-	background-color: #384D0F;
-}
-.el-41 {
-	width: 75%;
-	background-color: #7419CF;
-}
-.el-42 {
-	height: 25%;
-	background-color: #992295;
-}
-.el-43 {
-	height: 50%;
-	background-color: #2EBFB8;
-}
-.el-44 {
-	height: 25%;
-	background-color: #E6F035;
-}
-.el-45 {
-	height: 20%;
-	background-color: #1D70CF;
-}
-.el-46 {
-	width: 25%;
-	background-color: #E03DE0;
-}
-.el-47 {
-	width: 75%;
-	background-color: #63B510;
-}
-.el-48 {
-	height: 25%;
-	background-color: #384D0F;
-}
-.el-49 {
-	height: 50%;
-	background-color: #7419CF;
-}
-.el-50 {
-	height: 25%;
-	background-color: #992295;
-}
-.el-51 {
-	height: 20%;
-	background-color: #2EBFB8;
-}
-.el-52 {
-	width: 25%;
-	background-color: #E6F035;
-}
-.el-53 {
-	width: 75%;
-	background-color: #1D70CF;
-}
-.el-54 {
-	height: 25%;
-	background-color: #E03DE0;
-}
-.el-55 {
-	height: 50%;
-	background-color: #63B510;
-}
-.el-56 {
-	height: 25%;
-	background-color: #384D0F;
-}
-.el-57 {
-	height: 20%;
-	background-color: #7419CF;
-}
-.el-58 {
-	width: 25%;
-	background-color: #992295;
-}
-.el-59 {
-	width: 75%;
-	background-color: #2EBFB8;
-}
-.el-60 {
-	height: 25%;
-	background-color: #E6F035;
-}
-.el-61 {
-	height: 50%;
-	background-color: #1D70CF;
-}
-.el-62 {
-	height: 25%;
-	background-color: #E03DE0;
-}
-.el-63 {
-	height: 20%;
-	background-color: #63B510;
-}
-.el-64 {
-	width: 25%;
-	background-color: #384D0F;
-}
-.el-65 {
-	width: 75%;
-	background-color: #7419CF;
-}
-.el-66 {
-	height: 25%;
-	background-color: #992295;
-}
-.el-67 {
-	height: 50%;
-	background-color: #2EBFB8;
-}
-.el-68 {
-	height: 25%;
-	background-color: #E6F035;
-}
-.el-69 {
-	height: 20%;
-	background-color: #1D70CF;
-}
-.el-70 {
-	width: 25%;
-	background-color: #E03DE0;
-}
-.el-71 {
-	width: 75%;
-	background-color: #63B510;
-}
-.el-72 {
-	height: 25%;
-	background-color: #384D0F;
-}
-.el-73 {
-	height: 50%;
-	background-color: #7419CF;
-}
-.el-74 {
-	height: 25%;
-	background-color: #992295;
-}
-.el-75 {
-	height: 20%;
-	background-color: #2EBFB8;
-}
-.el-76 {
-	width: 25%;
-	background-color: #E6F035;
-}
-.el-77 {
-	width: 75%;
-	background-color: #1D70CF;
-}
-.el-78 {
-	height: 25%;
-	background-color: #E03DE0;
-}
-.el-79 {
-	height: 50%;
-	background-color: #63B510;
-}
-.el-80 {
-	height: 25%;
-	background-color: #384D0F;
-}
-.el-81 {
-	width: 50%;
-	background-color: #7419CF;
-}
-.el-82 {
-	height: 25%;
-	background-color: #992295;
-}
-.el-83 {
-	height: 75%;
-	background-color: #2EBFB8;
-}
-.el-84 {
-	height: 10%;
-	background-color: #E6F035;
-}
-.el-85 {
-	height: 90%;
-	background-color: #1D70CF;
-}
-.el-86 {
-	width: 15%;
-	background-color: #E03DE0;
 }

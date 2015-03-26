@@ -16,8 +16,9 @@ using namespace std;
 
 
 string random_color() {
-    #define COLOR_NUM 8
-    string colors[COLOR_NUM] = {"#1D70CF", "#E03DE0", "#63B510", "#384D0F", "#7419CF", "#992295", "#2EBFB8", "#E6F035"};
+    #define COLOR_NUM 11
+    string colors[COLOR_NUM] =
+        {"#1D70CF", "#E03DE0", "#63B510", "#384D0F", "#7419CF", "#992295", "#2EBFB8", "#E6F035", "#42450B", "#DE4B9E", "#1ADB2A"};
     static unsigned int current_index = 0;
 
     current_index = (current_index + 1) % COLOR_NUM;
@@ -114,9 +115,9 @@ void generate_positioning_files_string(
             curr_index = first_par_occurance;
             css_file +=
                 generate_css_class(
-                                    CURR_ELEMENT, ((*first_index == 'r') ? "height: " : "width: ") + numeric_data + "%;\n" + ((use_random_colors) ? "" : "//") + "background-color: " + random_color() + ";\n"
+                                    CURR_ELEMENT, ((use_random_colors) ? string("") : string("//")) + "background-color: " + random_color() + ";\n"
                                    );
-            html_file += string(level, '\t') + generate_div_string(CURR_ELEMENT, ((*first_index == 'r') ? "row " : "col ") + CURR_ELEMENT);
+            html_file += string(level, '\t') + generate_div_string(CURR_ELEMENT, ((*first_index == 'r') ? "row row-" : "col col-") + numeric_data + " " + CURR_ELEMENT);
             ++element_id;
 
             // recursive calls
@@ -172,12 +173,37 @@ void generate_html_header_part(string &html_file, string title, string css_file_
 <head>\n\
 \t<meta charset=\"utf-8\" />\n\
 \t<link rel=\"stylesheet\" href=\"styles/common.css\" />\n\
+\t<link rel=\"stylesheet\" href=\"styles/rows.css\" />\n\
+\t<link rel=\"stylesheet\" href=\"styles/cols.css\" />\n\
 \t<link rel=\"stylesheet\" href=\"styles/" + css_file_name + "\" />\n\
 \t<title>Homepage</title>\n\
 </head>\n\n\
 <body>\n\n";
 
     html_file += header_string;
+}
+
+void generate_row_classes(string path) {
+    string css_row_file = "";
+    for(int i = 0; i <= 100; i++) {
+        css_row_file +=
+            generate_css_class("row-" + int_to_string(i), "height: " + int_to_string(i) + "%;\n"); // + "%;\nbackground-color: " + random_color() + ";\n");
+    }
+
+    ofstream css_row_file_stream(path + "/styles/rows.css");
+    css_row_file_stream << css_row_file;
+    css_row_file_stream.close();
+}
+
+void generate_col_classes(string path) {
+    string css_col_file = "";
+    for(int i = 0; i <= 100; i++) {
+        css_col_file += generate_css_class("col-" + int_to_string(i), "width: " + int_to_string(i) + "%;\n");
+    }
+
+    ofstream css_col_file_stream(path + "/styles/cols.css");
+    css_col_file_stream << css_col_file;
+    css_col_file_stream.close();
 }
 
 void reformat_format_string(string &format_string) {
@@ -194,6 +220,9 @@ void generate_positioning_files(string format_string, string html_file_name, str
     }
 
     reformat_format_string(format_string);
+
+    generate_row_classes(common_path);
+    generate_col_classes(common_path);
 
     string html_file = "", css_file = "";
     generate_html_header_part(html_file, "Index page", css_file_name);
@@ -216,8 +245,13 @@ int main() {
     if(choice == 1) {
         try {
             // format string format (xD) : container_width container_height
-            string format_string =
-                "1000px 500px r(100){ c(15){  } c(70){ c(50){ r(25){  } r(5){  } r(70){ r10(20){ c(25){  } c(75){ r(25){  } r(50){  } r(25){  } } } } } c(50){ r(25){  } r(75){ r(10){  } r(90){  } }  } } c(15){  } }";
+//string format_string =
+//"1000px 500px \
+//r(15){ c(40){  } } \
+//r(15){ c(10){  } c4(10){  } c(30){  } c2(10){  } } \
+//r(60){ c(15){  } c(70){ c(50){ r(25){  } r(5){  } r(70){ r10(20){ c(25){  } c(75){ r(25){  } r(50){  } r(25){  } } } } } c(50){ r(25){  } r(75){ r(10){  } r(90){  } }  } } c(15){  } }";
+            string format_string = "1000px 500 px r(50){ c5(5){ r3(5){  } } c(20){  } }";
+
             //cout << "Enter website format string...\t";
             //cin >> format_string;
             cout << "Generating files...\n";

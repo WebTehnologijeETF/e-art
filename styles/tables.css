@@ -1,0 +1,70 @@
+.table-title {
+	font-size: 3vw;
+	text-align: center;
+	color: white;
+}
+
+.table-container {
+	
+}
+
+.table-container table, tr, td {
+	border: solid 1px black;
+	border-collapse: collapse;
+}
+
+.top-10-table {
+	width: 100%;
+	height: 100%;
+	font-family: "Oswald";
+	text-align: center;
+}
+
+.top-10-table-row-titles {
+	background-image: url("../images/tables/table-first-row-bg.png");
+	background-size: 100% 100%;
+	font-size: 1.5vw;
+	color: #737373;
+}
+
+.top-10-table-row {
+	font-size: 1vw;
+}
+
+.top-10-table-row:hover {
+	background-color: #737373;
+	cursor: pointer;
+}
+
+.top-10-table-row-white {
+	background-color: white;
+	color: black;
+}
+
+.top-10-table-row-black {
+	background-color: black;
+	color: white;
+}
+
+.left-navigation-container {
+	font-family: "Oswald";
+}
+
+.left-navigation-title {
+	text-align: left;
+	font-size: 2vw;
+	color: #737373;
+}
+
+.left-navigation-body {
+	
+}
+
+.left-navigation-item {
+	
+}
+
+.left-navigation-item a {
+	text-decoration: none;
+	color: black;
+}

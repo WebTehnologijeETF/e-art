@@ -220,10 +220,13 @@ bool is_valid_format_string(const string &format_string) {
 
 void generate_positioning_files(string format_string, string html_file_name, string css_file_name, string common_path, bool use_random_colors) {
     if(!is_valid_format_string(format_string)) {
-        throw "Invalid format string";
+        try {
+            reformat_format_string(format_string);
+        } catch(const char *err_msg) {
+            throw "Invalid format string";
+        }
     }
 
-    reformat_format_string(format_string);
 
     generate_row_classes(common_path);
     generate_col_classes(common_path);
@@ -243,8 +246,8 @@ void generate_positioning_files(string format_string, string html_file_name, str
 int main() {
 
     unsigned int choice;
-    //cin >> choice;
-    choice = 1;
+    cin >> choice;
+    //choice = 1;
 
     if(choice == 1) {
         try {
@@ -254,18 +257,30 @@ int main() {
 //r(15){ c(40){  } } \
 //r(15){ c(10){  } c4(10){  } c(30){  } c2(10){  } } \
 //r(60){ c(15){  } c(70){ c(50){ r(25){  } r(5){  } r(70){ r10(20){ c(25){  } c(75){ r(25){  } r(50){  } r(25){  } } } } } c(50){ r(25){  } r(75){ r(10){  } r(90){  } }  } } c(15){  } }";
-string format_string = "1100px 500px \
+string index_format_string = "1100px 500px \
 r(70){ c(15){  } \
 c(70){ r(15){ c(25){  } c(50){ r(25){  } r(50){  } r(25){  } } c(25){  } } r(5){  } \
 r(50){ c(1){  } c(98){ r(5){  } r(70){ c(25){  } c(75){ r(25){ c(25){  } c(75){  } } r(50){  } r(25){  } } } r(20){  } r(5){  } } c(1){  } } \
 r(5){  } } \
 c(15){  } }";
 
+string tables_format_string =
+"1550px 550px "
+"r(60){"
+"       c(25){  }"
+"       c(50){"
+"               r6(5){  }"
+"               r(25){  }"
+"       }"
+"       c(25){  }"
+"} "
+"r(10){  } ";
+
             //cout << "Enter website format string...\t";
             //cin >> format_string;
             cout << "Generating files...\n";
             generate_positioning_files(
-                                    format_string,
+                                    tables_format_string,
                                     "generated.html",
                                     "generated.css",
                                     "C:\\Users\\FARUK\\Desktop\\faruk\\linux merge\\faruk\\uni\\6\\wt\\e-art",
@@ -287,6 +302,20 @@ c(15){  } }";
         cout << string_to_int("12312313") << endl;
 
         return 3;
+    } else if(choice == 4) {
+        string line = "initial";
+        string concatanated_string = "";
+        for(int i = 0; ; i++) {
+            getline(cin, line);
+            if(i != 0 && line == "") {
+                break;
+            }
+            concatanated_string += ((i == 0) ? "" : ("\"" + line + "\"\n"));
+        }
+
+        cout << concatanated_string << endl;
+
+        return 4;
     }
 
     return 0;

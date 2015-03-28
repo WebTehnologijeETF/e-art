@@ -12,11 +12,62 @@ body {
 }
 
 .logo-container {
-	margin-left: 4%;	
+	margin-left: 4%;
 }
 
 .header-logo {
 	width: 45%;
+}
+
+.main-menu-container {
+}
+
+.container {
+	height: 1100px;
+	width: 100%;
+}
+.row {
+	width: 100%;
+	float: left;
+}
+.col {
+	height: 100%;
+	float: left;
+}
+
+.logo-container {
+	background-image: url("../images/logo.png");
+	background-size: 100% 100%;
+}
+
+.main-menu-container {
+	background-image: url("../images/menu-strip.png");
+	background-size: 100% 100%;
+}
+
+.main-menu-item {
+	font-size: 2vw;
+	//padding: 0.5vw 0 0 0;
+	color: black;
+	text-shadow: 1px 1px white;
+}
+
+div.main-menu-item a {
+	text-decoration: none;
+	color: inherit;
+}
+
+div.main-menu-item a:hover {
+	//font-size: 4vh;
+	margin-left: -10px;
+	margin-bottom: -10px;
+	text-decoration: none;
+	//color: #3284db;
+	background-color: black;
+	border-radius: 3px;
+	color: white;
+	text-shadow: 2px 2px black;
+	//font-family: "Oswald";
 }
 
 .main-menu {

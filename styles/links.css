@@ -1,0 +1,28 @@
+.link-list {
+	list-style-image: url('../images/links/link-bullet.png');
+	font-family: "Oswald";
+}
+
+.link-title {
+	font-size: 2.5vw;
+	color: white;
+}
+
+.link a {
+	text-decoration: underline;
+	color: #3284DB;
+}
+
+.link-body {
+	font-family: "Oswald";
+}
+
+.partners-title {
+	font-size: 1.5vw;
+	color: #737373;
+}
+
+.link-list a {
+	text-decoration: underline;
+	color: #3284db;
+}

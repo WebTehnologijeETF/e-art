@@ -26,3 +26,7 @@
 	text-decoration: underline;
 	color: #3284db;
 }
+
+.scrolling {
+	overflow: auto;
+}

@@ -39,9 +39,21 @@ $.post = function() {
 
 $.get = function() {
 	console.log('get');
-};
+};		
 
-var objectInstance = new $('asd');
-console.log($.width);
-$.width = 3;
-console.log($.width);
+function showSearch() {
+	var items = document.getElementsByClassName('search-help-row');
+	console.log('==1==');
+	for(i = 0; i < items.length; i++) {
+		items[i].className = 'search-help-row visible';
+	}
+}
+
+function hideSearch() {
+	var items = document.getElementsByClassName('search-help-row');
+	console.log('==1==');
+	for(i = 0; i < items.length; i++) {
+		items[i].className = 'search-help-row invisible';
+	}
+}
+

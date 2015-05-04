@@ -7,6 +7,7 @@
 	<link rel="stylesheet" href="styles/rows.css" />
 	<link rel="stylesheet" href="styles/cols.css" />
 	<link rel="stylesheet" href="styles/tables.css" />
+	<link rel="stylesheet" href="styles/contact.css" />
 	<title>Tables</title>
 </head>
 
@@ -89,353 +90,111 @@
 	<!-- ==== TABLES ==== -->
 	<div id="el-31" class="row row-70 el-31">
 		<div id="el-32" class="col col-15 el-32">
+			left
+		</div>
+		
+		<div id="el-33" class="col col-70 el-33">
 			<div class="col col-20">
 			</div>
-			
-			<div class="col col-80 left-navigation-container">
-				<div class="row row-7 left-navigation-title">
-					navigation
+	
+			<div class="col col-60">
+				
+				<form onsubmit="return false;">
+					<!-- NAZIV PROIZVODA -->
+					<div class="row row-5 text-stroke form-item-title">
+						Naziv proizvoda&nbsp;
+						<span id="naziv-error-provider" class="error-message invisible">
+							<img class="icon-image" src="images/contact/x.png">
+							Not ok.
+						</span>
+						<span id="naziv-valid-provider" class="valid-message invisible">
+							<img class="icon-image" src="images/contact/tick-mark.jpg">
+							Its ok its ok.
+						</span>
+					</div>
+					<div class="row row-3 el-36">
+						<input name="naziv" id="naziv-input" type="mail" class="contact-input" onblur="validate('naziv-input', '', 'naziv-error-provider', 'naziv-valid-provider', 1);"></input>
+					</div>
+					<!-- endof NAZIV PROIZVODA -->
+					
+					<!-- OPIS PROIZVODA -->
+					<div class="row row-5 text-stroke form-item-title">
+						Opis&nbsp;
+						<span id="opis-error-provider" class="error-message invisible">
+							<img class="icon-image" src="images/contact/x.png">
+							Not ok.
+						</span>
+						<span id="opis-valid-provider" class="valid-message invisible">
+							<img class="icon-image" src="images/contact/tick-mark.jpg">
+							Its ok its ok.
+						</span>
+					</div>
+					<div class="row row-3 el-36">
+						<input name="opis" id="opis-input" type="mail" class="contact-input" onblur="validate('opis-input', '', 'opis-error-provider', 'opis-valid-provider', 1);"></input>
+					</div>
+					<!-- endof OPIS PROIZVODA -->
+					
+					<!-- URL SLIKE PROIZVODA -->
+					<div class="row row-5 text-stroke form-item-title">
+						URL slike&nbsp;
+						<span id="slika-error-provider" class="error-message invisible">
+							<img class="icon-image" src="images/contact/x.png">
+							Not ok.
+						</span>
+						<span id="slika-valid-provider" class="valid-message invisible">
+							<img class="icon-image" src="images/contact/tick-mark.jpg">
+							Its ok its ok.
+						</span>
+					</div>
+					<div class="row row-3 el-36">
+						<input name="slika" id="slika-input" type="mail" class="contact-input" onblur="validate('slika-input', '', 'slika-error-provider', 'slika-valid-provider', 1);"></input>
+					</div>
+					<!-- endof URL SLIKE PROIZVODA -->
+					
+					<!-- BUTTON -->
+					<div class="row row-7 submit-button-container">
+						<div class="col col-85">
+						</div>
+						
+						<div class="col col-15">
+							<button class="contact-submit-button" onclick="addFromForm();">Add item</button>
+						</div>					
+					</div>
+					<!-- endof BUTTON -->
+				</form>
+				
+				<div class="row row-3">
 				</div>
 				
-				<div class="row row-50 left-navigation-body">
-					<div class="col col-5">
-						
+				<div class="row row-5">
+					
+					<div class="col col-25">
+						Naziv
 					</div>
 					
-					<div class="col col-95">
-						<div class="row row-12 left-navigation-item">
-							<a href="#table-title-1">> Top 10 uploaders this week </a>
-						</div>
-						
-						<div class="row row-12 left-navigation-item">
-							<a href="#table-title-2">> Most liked artworks </a>
-						</div>
-						
-						<div class="row row-12 left-navigation-item">
-							<a href="#table-title-3">> Most commented artworks </a>
-						</div>
+					<div class="col col-25">
+						Opis
 					</div>
-				</div>
-			</div>
-		</div>
-		<div id="el-33" class="col col-70 el-33">
-			<div id="el-34" class="col col-25 el-34">
-			</div>
-			<div id="el-35" class="col col-50 el-35">
-				
-				<!-- ===== TABLE INSTANCE ===== -->
-				<div id="el-36" class="row row-70">
-					<div id="table-title-1" class="row row-15 table-title text-stroke">
-						Top 10 uploaders this week
+					
+					<div class="col col-25">
+						Slika
 					</div>
-					<div id="el-38" class="row row-5 el-38">
-					</div>
-					<div id="el-39" class="row row-75 table-container">
-						<table class="top-10-table">
-						
-						  <tr class="top-10-table-row-titles">
-							<td>no.</td>
-							<td>username</td> 
-							<td>upload count</td>
-						  </tr>
-						  
-						  <tr class="top-10-table-row top-10-table-row-white">
-							<td>1</td>
-							<td>Jackson</td> 
-							<td>94</td>
-						  </tr>
-						  
-						  <tr class="top-10-table-row top-10-table-row-black">
-							<td>2</td>
-							<td>Jackson</td> 
-							<td>94</td>
-						  </tr>
-						  
-						  <tr class="top-10-table-row top-10-table-row-white">
-							<td>3</td>
-							<td>Jackson</td> 
-							<td>94</td>
-						  </tr>
-						  
-						  <tr class="top-10-table-row top-10-table-row-black">
-							<td>4</td>
-							<td>Jackson</td> 
-							<td>94</td>
-						  </tr>
-						  
-						  <tr class="top-10-table-row top-10-table-row-white">
-							<td>5</td>
-							<td>Jackson</td> 
-							<td>94</td>
-						  </tr>
-						  
-						  <tr class="top-10-table-row top-10-table-row-black">
-							<td>6</td>
-							<td>Jackson</td> 
-							<td>94</td>
-						  </tr>
-						  
-						  <tr class="top-10-table-row top-10-table-row-white">
-							<td>7</td>
-							<td>Jackson</td> 
-							<td>94</td>
-						  </tr>
-						  
-						  <tr class="top-10-table-row top-10-table-row-black">
-							<td>8</td>
-							<td>Jackson</td> 
-							<td>94</td>
-						  </tr>
-						  
-						  <tr class="top-10-table-row top-10-table-row-white">
-							<td>9</td>
-							<td>Jackson</td> 
-							<td>94</td>
-						  </tr>
-						  
-						  <tr class="top-10-table-row top-10-table-row-black">
-							<td>10</td>
-							<td>Jackson</td> 
-							<td>94</td>
-						  </tr>
-						  
-						  
-						  <tr class="top-10-table-row top-10-table-row-white">
-							<td>11</td>
-							<td>Jackson</td> 
-							<td>94</td>
-						  </tr>
-						  
-						  <tr class="top-10-table-row top-10-table-row-black">
-							<td>12</td>
-							<td>Jackson</td> 
-							<td>94</td>
-						  </tr>
-						</table>
-					</div>
-					<div id="el-40" class="row row-5">
-					</div>
-				</div>
-				<!-- ===== endof TABLE INSTANCE ===== -->
-				
-				<div class="row row-5">
+					
+					
 				</div>
 				
-				<!-- ===== TABLE INSTANCE ===== -->
-				<div id="el-36" class="row row-70">
-					<div id="table-title-2" class="row row-15 table-title text-stroke">
-						Most liked artworks
-					</div>
-					<div id="el-38" class="row row-5 el-38">
-					</div>
-					<div id="el-39" class="row row-75 table-container">
-						<table class="top-10-table">
-						
-						  <tr class="top-10-table-row-titles">
-							<td>no.</td>
-							<td>artwork</td> 
-							<td>author</td>
-						  </tr>
-						  
-						  <tr class="top-10-table-row top-10-table-row-white">
-							<td>1</td>
-							<td>Jackson</td> 
-							<td>94</td>
-						  </tr>
-						  
-						  <tr class="top-10-table-row top-10-table-row-black">
-							<td>2</td>
-							<td>Jackson</td> 
-							<td>94</td>
-						  </tr>
-						  
-						  <tr class="top-10-table-row top-10-table-row-white">
-							<td>3</td>
-							<td>Jackson</td> 
-							<td>94</td>
-						  </tr>
-						  
-						  <tr class="top-10-table-row top-10-table-row-black">
-							<td>4</td>
-							<td>Jackson</td> 
-							<td>94</td>
-						  </tr>
-						  
-						  <tr class="top-10-table-row top-10-table-row-white">
-							<td>5</td>
-							<td>Jackson</td> 
-							<td>94</td>
-						  </tr>
-						  
-						  <tr class="top-10-table-row top-10-table-row-black">
-							<td>6</td>
-							<td>Jackson</td> 
-							<td>94</td>
-						  </tr>
-						  
-						  <tr class="top-10-table-row top-10-table-row-white">
-							<td>7</td>
-							<td>Jackson</td> 
-							<td>94</td>
-						  </tr>
-						  
-						  <tr class="top-10-table-row top-10-table-row-black">
-							<td>8</td>
-							<td>Jackson</td> 
-							<td>94</td>
-						  </tr>
-						  
-						  <tr class="top-10-table-row top-10-table-row-white">
-							<td>9</td>
-							<td>Jackson</td> 
-							<td>94</td>
-						  </tr>
-						  
-						  <tr class="top-10-table-row top-10-table-row-black">
-							<td>10</td>
-							<td>Jackson</td> 
-							<td>94</td>
-						  </tr>
-						  
-						  
-						  <tr class="top-10-table-row top-10-table-row-white">
-							<td>11</td>
-							<td>Jackson</td> 
-							<td>94</td>
-						  </tr>
-						  
-						  <tr class="top-10-table-row top-10-table-row-black">
-							<td>12</td>
-							<td>Jackson</td> 
-							<td>94</td>
-						  </tr>
-						  
-						  
-						  <tr class="top-10-table-row top-10-table-row-white">
-							<td>13</td>
-							<td>Jackson</td> 
-							<td>94</td>
-						  </tr>
-						</table>
-					</div>
-					<div id="el-40" class="row row-5">
-					</div>
-				</div>
-				<!-- ===== endof TABLE INSTANCE ===== -->
-
-				<div class="row row-5">
+				<div id="table" class="row row-100">
 				</div>
 				
-				<!-- ===== TABLE INSTANCE ===== -->
-				<div id="el-36" class="row row-70">
-					<div id="table-title-3" class="row row-15 table-title text-stroke">
-						Most commented artworks
-					</div>
-					<div id="el-38" class="row row-5 el-38">
-					</div>
-					<div id="el-39" class="row row-75 table-container">
-						<table class="top-10-table">
-						
-						  <tr class="top-10-table-row-titles">
-							<td>no.</td>
-							<td>artwork</td> 
-							<td>author</td>
-						  </tr>
-						  
-						  <tr class="top-10-table-row top-10-table-row-white">
-							<td>1</td>
-							<td>Jackson</td> 
-							<td>94</td>
-						  </tr>
-						  
-						  <tr class="top-10-table-row top-10-table-row-black">
-							<td>2</td>
-							<td>Jackson</td> 
-							<td>94</td>
-						  </tr>
-						  
-						  <tr class="top-10-table-row top-10-table-row-white">
-							<td>3</td>
-							<td>Jackson</td> 
-							<td>94</td>
-						  </tr>
-						  
-						  <tr class="top-10-table-row top-10-table-row-black">
-							<td>4</td>
-							<td>Jackson</td> 
-							<td>94</td>
-						  </tr>
-						  
-						  <tr class="top-10-table-row top-10-table-row-white">
-							<td>5</td>
-							<td>Jackson</td> 
-							<td>94</td>
-						  </tr>
-						  
-						  <tr class="top-10-table-row top-10-table-row-black">
-							<td>6</td>
-							<td>Jackson</td> 
-							<td>94</td>
-						  </tr>
-						  
-						  <tr class="top-10-table-row top-10-table-row-white">
-							<td>7</td>
-							<td>Jackson</td> 
-							<td>94</td>
-						  </tr>
-						  
-						  <tr class="top-10-table-row top-10-table-row-black">
-							<td>8</td>
-							<td>Jackson</td> 
-							<td>94</td>
-						  </tr>
-						  
-						  <tr class="top-10-table-row top-10-table-row-white">
-							<td>9</td>
-							<td>Jackson</td> 
-							<td>94</td>
-						  </tr>
-						  
-						  <tr class="top-10-table-row top-10-table-row-black">
-							<td>10</td>
-							<td>Jackson</td> 
-							<td>94</td>
-						  </tr>
-						  
-						  
-						  <tr class="top-10-table-row top-10-table-row-white">
-							<td>11</td>
-							<td>Jackson</td> 
-							<td>94</td>
-						  </tr>
-						  
-						  <tr class="top-10-table-row top-10-table-row-black">
-							<td>12</td>
-							<td>Jackson</td> 
-							<td>94</td>
-						  </tr>
-						  
-						  
-						  <tr class="top-10-table-row top-10-table-row-white">
-							<td>13</td>
-							<td>Jackson</td> 
-							<td>94</td>
-						  </tr>
-						</table>
-					</div>
-					<div id="el-40" class="row row-5">
-					</div>
-				</div>
-				<!-- ===== endof TABLE INSTANCE ===== -->
-
-				<div class="row row-5">
-				</div>
 			</div>
 			
-			<div id="el-41" class="col col-25 el-41">
+			<div class="col col-20">
 			</div>
+
 		</div>
+		
 		<div id="el-42" class="col col-15 el-42">
+			right
 		</div>
 	</div>
 	<!-- ==== endof TABLES ==== -->
@@ -444,6 +203,7 @@
 
 <footer>
 	<script src="scripts/common.js"></script>
+	<script src="scripts/tables.js"></script>
 </footer>
 
 </body>

@@ -57,3 +57,18 @@ function hideSearch() {
 	}
 }
 
+function loadPage(pageName) {
+	console.log(pageName);
+	
+	var xmlhttp = new XMLHttpRequest();
+	
+	xmlhttp.onreadystatechange = function() {
+		if(xmlhttp.readyState==4 && xmlhttp.status==200) {
+			document.getElementById('ointaner-co').innerHTML =
+				xmlhttp.responseText;
+		}
+	};
+	
+	xmlhttp.open('GET', 'main-divs-single-page/' + pageName, true);
+	xmlhttp.send();
+}

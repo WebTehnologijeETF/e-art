@@ -1,5 +1,5 @@
 var validities = {};
-var FORM_CONTROL_CNT = 3;
+var TABLES_FORM_CONTROL_CNT = 3;
 
 function validate(controlId, regex, errorProviderControlId, validProviderControlId, minLength) {
 	
@@ -38,7 +38,7 @@ function isFormSubmitable() {
 		}
 	}
 	
-	return Object.keys(validities).length == FORM_CONTROL_CNT &&
+	return Object.keys(validities).length == TABLES_FORM_CONTROL_CNT &&
 		isValid;
 		
 }
@@ -75,7 +75,7 @@ function addItem(item) {
 		if (xmlhttp.readyState==4 && xmlhttp.status==200) {
 			console.log(xmlhttp.responseText);
 			
-			getAllItems();
+			getAllItems(false);
 		}
 	}
 	
@@ -96,7 +96,7 @@ function removeItem(item) {
 	
 	xmlhttp.onreadystatechange=function() {
 		if (xmlhttp.readyState==4 && xmlhttp.status==200) {
-			getAllItems();
+			getAllItems(false);
 		}
 	}
 	
@@ -117,7 +117,7 @@ function editItem(item) {
 		if (xmlhttp.readyState==4 && xmlhttp.status==200) {
 			console.log(xmlhttp.responseText);
 			
-			getAllItems();
+			getAllItems(false);
 		}
 	}
 	
@@ -144,7 +144,7 @@ function editFromForm(arrayIndex) {
 
 // hard-coded
 function addFromForm() {
-	if(!isFormSubmitable) {
+	if(!isFormSubmitable()) {
 		alert('Form not valid!!!');
 	} else {
 		var item = {
@@ -208,9 +208,11 @@ function generateTable(items) {
 	}
 }
 
-// initial
+function getAllItemsFromForm() {
+	getAllItems(true);
+	generateTable(allItems);
+}
 
-getAllItems(true);
-generateTable(allItems);
+
 
 

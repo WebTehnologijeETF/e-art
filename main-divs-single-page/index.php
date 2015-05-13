@@ -1,29 +1,14 @@
-<!-- ============INDEX========== -->
-<div id="el-31" class="row row-70 artworks-container">
-	<div id="el-32" class="col col-15 el-32">
-	</div>
-	<div id="el-33" class="col col-70 el-33">
-		<!--
-		<div id="el-34" class="row row-15 el-34">
-			<div id="el-35" class="col col-25 el-35">
-			</div>
-			<div id="el-36" class="col col-50 el-36">
-				<div id="el-37" class="row row-25 el-37">
-				</div>
-				<div id="list-title" class="row row-50 text-stroke">
-					
-				</div>
-				<div id="el-39" class="row row-25 el-39">
-				</div>
-			</div>
-			<div id="el-40" class="col col-25 el-40">
-			</div>
-		</div>
-		-->
-		<div id="el-41" class="row row-5 el-41">
-		</div>
-		<!-- =====ARTWORKS=====-->
-		<?php
+<?php
+			$current_page_content = 
+				'<!-- ============INDEX========== -->' . "\n" .
+				'<div id="el-31" class="row row-70 artworks-container">' . "\n" .
+				'<div id="el-32" class="col col-15 el-32">' . "\n" .
+				'</div>' . "\n" .
+				'<div id="el-33" class="col col-70 el-33">' . "\n" .
+					'<div id="el-41" class="row row-5 el-41">' . "\n" .
+					'</div>' . "\n" .
+					'<!-- =====ARTWORKS=====-->' . "\n";
+		
 			$file_list = scandir('../novosti');
 			$news = array();
 			$news_file_names = array();
@@ -38,12 +23,12 @@
 			// remove previous details filesize
 			//$details_files = scandir('/novosti/details');
 			
-			
 			foreach($news as $new) {
 				$has_details = FALSE;
 				$date_time = htmlspecialchars($new[0], ENT_QUOTES, 'UTF-8');
 				$user_name = htmlspecialchars($new[1], ENT_QUOTES, 'UTF-8');
 				$title = htmlspecialchars($new[2], ENT_QUOTES, 'UTF-8');
+				$title = strtoupper(substr($title, 0, 1)) . strtolower(substr($title, 1)); 	
 				$image_url = htmlspecialchars($new[3], ENT_QUOTES, 'UTF-8');
 				
 				$news_text = '';
@@ -61,15 +46,23 @@
 				if($i !== count($new)) {
 					++$i;
 					$details = 
-						'<div id="el-31" class="row row-70 artworks-container">' .
-						'<div id="el-32" class="col col-15 el-32">' .
-						'</div>' .
-						'<div id="el-33" class="col col-70 el-33">' .
-						'<div id="el-41" class="row row-5 el-41">' .
-						'</div>' .
-						'<!-- =====ARTWORKS=====-->' .
-							'<div class="col col-99">';
-					
+						'<div id="el-31" class="row row-50 artworks-container">' .
+							'<div id="el-32" class="col col-15 el-32">' .
+							'</div>' .
+							'<div id="el-33" class="col col-70 el-33 artwork-container">' .
+							'<div id="el-41" class="row row-5 el-41">' .
+							'</div>' .
+							'<!-- =====ARTWORKS=====-->' .
+								'<div class="row row-40">' . 
+									'<h1 class="text-stroke artwork-title">' . $title . '</h1>' .
+									'<div class="col col-70">' .
+										$news_text .
+									'</div>' .
+									'<div class="col col-30">' .
+										'<img alt="slika" src="' . $image_url . '" class="thumbnail-div-pic" />' . "\n" .
+									'</div>' . 
+									'<h2>Details:</h2>';
+							
 					for(; $i < count($new); $i++) {
 						$details .= $new[$i] . ' ';
 					}
@@ -91,7 +84,7 @@
 					$has_details = TRUE;
 				}
 				
-				echo
+				$current_page_content .=
 					'<!-- ============ARTWORK INSTANCE========== -->' . "\n" .
 					'<div class="row row-50 artwork-container">' . "\n" .
 						'<div class="col col-1">' . "\n" .
@@ -115,12 +108,12 @@
 										$news_text . "\n" .
 									'</div>' . "\n";
 									if($has_details === TRUE) {
-										echo 
+										$current_page_content .= 
 										'<div class="row row-25 artwork-details-link-container">' . "\n" .
 											'<a href="#" onclick="loadPage(\'' . $details_file_name . '\')">Details...</a>' . "\n" .
 										'</div>' . "\n";
 									}								
-								echo 
+								$current_page_content .= 
 								'</div>' . "\n" .
 								
 								'<div class="col col-25">' . "\n" .
@@ -141,6 +134,8 @@
 					'</div>' . "\n" .
 					'<!-- ============endof ARTWORK INSTANCE========== -->' . "\n";
 			}
+			
+			echo html_entity_decode($current_page_content);
 		?>
 		<!-- =====endof ARTWORKS=====-->
 		

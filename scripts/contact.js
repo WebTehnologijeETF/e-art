@@ -70,7 +70,7 @@ function ajaxValidate() {
 	xmlhttp.send();
 }
 
-function isFormSubmitable() {
+function isContactFormSubmitable() {
 	
 	var isValid = true;
 	
@@ -81,6 +81,12 @@ function isFormSubmitable() {
 			}
 		}
 	}
+	
+	console.log(Object.keys(validities).length);
+	console.log(FORM_CONTROL_CNT);
+	console.log(Object.keys(validities).length === FORM_CONTROL_CNT);
+	console.log(isValid);
+	console.log('');
 	
 	return Object.keys(validities).length == FORM_CONTROL_CNT &&
 		isValid;

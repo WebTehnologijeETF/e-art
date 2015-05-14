@@ -3,27 +3,6 @@
 ?>
 
 <?php
-	/*
-	if(
-		!isset($_GET['email']) || !isset($_GET['email-repeat']) || !isset($_GET['phone']) ||
-		!isset($_GET['message-title']) || !isset($_GET['message']) || !isset($_GET['mjesto']) ||
-		!isset($_GET['postanski-broj'])
-	) {
-		die('Insufficient data');
-	}
-
-	$to      = 'fmustafic1@etf.unsa.ba';
-	$subject = 'the subject';
-	$message = 'hello';
-	$headers = 'From: webmaster@example.com' . "\r\n" .
-		'Reply-To: webmaster@example.com' . "\r\n" .
-		'X-Mailer: PHP/' . phpversion();
-
-	mail($to, $subject, $message, $headers);
-	*/	
-?>
-
-<?php
 
 	if(
 		!isset($_GET['email']) || !isset($_GET['email-repeat']) || !isset($_GET['phone']) ||
@@ -48,9 +27,9 @@
 	$params = array(
 		'api_user'  => $user,
 		'api_key'   => $pass,
-		'to'        => 'faruk1337@gmail.com',
+		'to'        => 'fmustafic1@etf.unsa.ba',
 		'subject'   => 'testing from curl',
-		'html'      => 'testing body',
+		'html'      => $message . ' phone: ' . $phone,
 		'text'      => $message . ' phone: ' . $phone,
 		'from'      => $email,
 		'cc'		=> 'vljubovic1@etf.unsa.ba',
@@ -76,6 +55,14 @@
 
 	// print everything out
 	print_r($response);
+	
+	echo 
+		'<h3>' . 'Mail poslan' . '</h1>';
+		
+	echo
+		'<form action="index.php">' .
+			'<button type="submit">Home1</button>' .
+		'</form>';
 
 ?>
 

@@ -1,9 +1,11 @@
+<script type="text/javascript" src="scripts/contact.js"></script>
+
 <!-- ===== CONTACT FORM ===== -->
 	<div id="el-31" class="row row-80 el-31">
 		<div id="el-32" class="col col-25 el-32">
 		</div>
 		<div id="el-33" class="col col-50 el-33">
-			<form class="row row-100" action="contact-send-confirm.php" method="get" onsubmit="isFormSubmitable();">
+			<form class="row row-100" action="contact-send-confirm.php" method="get" onsubmit="return isContactFormSubmitable()">
 			
 				<div id="el-35" class="row row-6 text-stroke form-item-title">
 					Your e	mail&nbsp;

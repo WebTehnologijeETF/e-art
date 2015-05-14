@@ -23,6 +23,12 @@
 			// remove previous details filesize
 			//$details_files = scandir('/novosti/details');
 			
+			usort ($news, function($first, $second) { 	
+						$date1 = date('Y-m-d H:i:s', strtotime($first[0]));
+						$date2 = date('Y-m-d H:i:s', strtotime($second[0]));
+						return $date1 < $date2;
+					});
+			
 			foreach($news as $new) {
 				$has_details = FALSE;
 				$date_time = htmlspecialchars($new[0], ENT_QUOTES, 'UTF-8');

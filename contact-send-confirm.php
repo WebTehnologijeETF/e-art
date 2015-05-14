@@ -1,17 +1,6 @@
-<!doctype html>
-<html>
-
-<head>
-	<link rel="stylesheet" href="styles/common.css" />
-	<link rel="stylesheet" href="styles/rows.css" />
-	<link rel="stylesheet" href="styles/cols.css" />
-	<link rel="stylesheet" href="styles/index.css" />
-	<link rel="stylesheet" href="styles/tables.css" />
-	<link rel="stylesheet" href="styles/links.css" />
-	<link rel="stylesheet" href="styles/contact.css" />
-</head>
-
-<body>
+	<?php
+		include './templates/header.php';
+	?>
 
 	<?php
 		if(
@@ -22,7 +11,7 @@
 			die('Insufficient data');
 		}
 		
-		function echo_input($field_name, $value_field, $condition, $show_error_and_valid) {
+		function echo_input($field_name, $input_name, $value_field, $condition, $show_error_and_valid) {
 			echo 
 '                               <div id="el-35" class="row row-6 text-stroke form-item-title">' . "\n" .
 								$field_name . '&nbsp;' . "\n";
@@ -40,7 +29,7 @@
                                echo 
 '								</div>' . "\n" .
 '                               <div id="el-36" class="row row-5 el-36">' . "\n" .
-'                                       <input name="email" id="email-input" type="mail" class="contact-input" value="' . $value_field . '"></input>' . "\n" .
+'                                       <input name="' . $input_name . '" id="email-input" type="mail" class="contact-input" value="' . $value_field . '"></input>' . "\n" .
 '                               </div>' . "\n";
 		}
 		
@@ -60,48 +49,81 @@
 		$is_message_title_valid = (strlen($message_title) > 0);
 		$is_message_valid = (strlen($message) > 0);
 		
+		/*
 		var_dump($is_email_valid);
 		var_dump($is_email_repeat_valid);
 		var_dump($is_phone_valid);
 		var_dump($is_message_title_valid);
 		var_dump($is_message_valid);
+		*/
 		
 		$is_form_data_valid = 
 			$is_email_valid && $is_email_repeat_valid && $is_phone_valid && 
 			$is_message_title_valid && $is_message_valid;
 		
+		/*
 		echo 'entire form: ';
 		var_dump($is_form_data_valid);
+		*/
 		
-		echo
-			'<div id="el-31" class="row row-80 el-31">' . "\n" .
-			'<div id="el-32" class="col col-25 el-32">' . "\n" .
-			'</div>' . "\n" .
-			'<div id="el-33" class="col col-50 el-33">' . "\n";
+		echo '<div class="form-data-container">'; // form data container
 		
 		if($is_form_data_valid) {
-			echo '<h1 class="error-message">Provjerite da li ste tacno popunili formu</h1>';
+			echo '<h1>Provjerite da li ste tacno popunili formu</h1>';
+			
+			echo 
+				'<form class="form-data" action="send-contact-email.php" method="get">' .
+					'<h2>' . 'Unijeti podaci:' . '</h2>' .
+					'<span class="form-data-title">' . 'Email: ' . '</span>' . '<span class="form-data-text">' . $email . '</span>' . '<br/>' .
+					'<input type="hidden" name="email" value="' . $email . '">' .
+					
+					'<span class="form-data-title">' . 'Email repeat: ' . '</span>' . '<span class="form-data-text">' . $email_repeat . '</span>' . '<br/>' .
+					'<input type="hidden" name="email-repeat" value="' . $email_repeat . '">' .
+
+					'<span class="form-data-title">' . 'Phone: ' . '</span>' . '<span class="form-data-text">' . $phone . '</span>' . '<br/>' .
+					'<input type="hidden" name="phone" value="' . $phone . '">' .					
+					
+					'<span class="form-data-title">' . 'Message title: ' . '</span class="form-data-text">' . '<span>' . $message_title . '</span>' . '<br/>' .
+					'<input type="hidden" name="message-title" value="' . $message_title . '">' .
+					
+					'<span class="form-data-title">' . 'Message: ' . '</span>' . '<span class="form-data-text">' . $message . '</span>' . '<br/>' .
+					'<input type="hidden" name="message" value="' . $message . '">' .
+					
+					
+					'<span class="form-data-title">' . 'Mjesto: ' . '</span>' . '<span class="form-data-text">' . $mjesto . '</span>' . '<br/>' .
+					'<input type="hidden" name="mjesto" value="' . $mjesto . '">' .					
+					
+					'<span class="form-data-title">' . 'Postanski broj: ' . '</span>' . '<span class="form-data-text">' . $postanski_broj . '</span>' .
+					'<input type="hidden" name="postanski-broj" value="' . $postanski_broj . '">' .					
+					
+					'<h2>' . 'Da li ste sigurni da zelite poslati ove podatke?' . '</h2>' .
+					'<button type="submit">Siguran sam</button>' .
+				'</form>';
+				
+			echo
+				'<h2>' . 'Ako ste pogresno popunili formu mozete prepraviti podatke ispod: ' . '</h2>';
 		}
 		
 		echo 
-			'<form>';
+			'<form method="get">';
 			
-		echo_input('Your email: ', $email, $is_email_valid, !$is_form_data_valid);
-		echo_input('Repeat your email: ', $email_repeat, $is_email_repeat_valid, !$is_form_data_valid);
-		echo_input('Your phone: ' , $phone, $is_phone_valid, !$is_form_data_valid);
-		echo_input('Message title: ', $message_title, $is_message_title_valid, !$is_form_data_valid);
-		echo_input('Message: ', $message, $is_message_valid, !$is_form_data_valid);
-		echo_input('Mjesto: ', $mjesto, FALSE, FALSE);
-		echo_input('Postanski broj: ' , $postanski_broj, FALSE, FALSE);
+		echo_input('Your email: ', 'email', $email, $is_email_valid, !$is_form_data_valid);
+		echo_input('Repeat your email: ', 'email-repeat', $email_repeat, $is_email_repeat_valid, !$is_form_data_valid);
+		echo_input('Your phone: ' , 'phone', $phone, $is_phone_valid, !$is_form_data_valid);
+		echo_input('Message title: ', 'message-title', $message_title, $is_message_title_valid, !$is_form_data_valid);
+		echo_input('Message: ', 'message', $message, $is_message_valid, !$is_form_data_valid);
+		echo_input('Mjesto: ', 'mjesto', $mjesto, FALSE, FALSE);
+		echo_input('Postanski broj: ', 'postanski-broj', $postanski_broj, FALSE, FALSE);
 		
+		echo 
+			'<button type="submit">Send</button>';
 		
 		echo 
 			'</form>';
-		
-		echo '</div>';
-		
+			
+		echo '</div">'; // endof form data container
 	?>
 
-</body>
-
-</html>
+	<?php
+		include './templates/footer.php';
+	?>

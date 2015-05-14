@@ -72,6 +72,8 @@ function ajaxValidate() {
 
 function isFormSubmitable() {
 	
+	return true;
+	
 	var isValid = true;
 	
 	for (var key in validities) {

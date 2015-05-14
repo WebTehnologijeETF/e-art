@@ -1,16 +1,12 @@
-<script src="scripts/contact.js"></script>
-
 <!-- ===== CONTACT FORM ===== -->
-	<div id="el-31" class="row row-60 el-31">
+	<div id="el-31" class="row row-80 el-31">
 		<div id="el-32" class="col col-25 el-32">
 		</div>
 		<div id="el-33" class="col col-50 el-33">
-			<div id="el-34" class="row row-5 el-34">
-			</div>
-			<form class="row row-100" onsubmit="return isFormSubmitable();">
+			<form class="row row-100" action="contact-send-confirm.php" method="get" onsubmit="isFormSubmitable();">
 			
-				<div id="el-35" class="row row-7 text-stroke form-item-title">
-					Your email&nbsp;
+				<div id="el-35" class="row row-6 text-stroke form-item-title">
+					Your e	mail&nbsp;
 					<span id="email-error-provider" class="error-message invisible">
 						<img class="icon-image" src="images/contact/x.png">
 						Not ok.
@@ -24,8 +20,23 @@
 					<input name="email" id="email-input" type="mail" class="contact-input" onblur="validate('email-input', '^([a-zA-Z0-9_.-])+@([a-zA-Z0-9_.-])+\.([a-zA-Z])+([a-zA-Z])+', 'email-error-provider', 'email-valid-provider', 0);"></input>
 				</div>
 				
+				<div id="el-35" class="row row-6 text-stroke form-item-title">
+					Repeat your email&nbsp;
+					<span id="email-repeat-error-provider" class="error-message invisible">
+						<img class="icon-image" src="images/contact/x.png">
+						Not ok.
+					</span>
+					<span id="email-repeat-valid-provider" class="valid-message invisible">
+						<img class="icon-image" src="images/contact/tick-mark.jpg">
+						Its ok its ok.
+					</span>
+				</div>
+				<div id="el-36" class="row row-5 el-36">
+					<input name="email-repeat" id="email-input" type="mail" class="contact-input" onblur="validate('email-input', '^([a-zA-Z0-9_.-])+@([a-zA-Z0-9_.-])+\.([a-zA-Z])+([a-zA-Z])+', 'email-error-provider', 'email-valid-provider', 0);"></input>
+				</div>
 				
-				<div id="el-35" class="row row-7 text-stroke form-item-title">
+				
+				<div id="el-35" class="row row-6 text-stroke form-item-title">
 					Your phone number&nbsp;
 					<span id="phone-error-provider" class="error-message invisible">
 						<img class="icon-image" src="images/contact/x.png">
@@ -41,7 +52,7 @@
 				</div>
 				
 				
-				<div id="el-37" class="row row-7 text-stroke form-item-title">
+				<div id="el-37" class="row row-6 text-stroke form-item-title">
 					Message title&nbsp;
 					<span id="message-title-error-provider" class="error-message invisible">
 						<img class="icon-image" src="images/contact/x.png">
@@ -57,7 +68,7 @@
 				</div>
 				
 				
-				<div class="row row-7 text-stroke form-item-title">
+				<div class="row row-6 text-stroke form-item-title">
 					Message&nbsp;
 				</div>
 				<div id="el-40" class="row row-20 el-40">

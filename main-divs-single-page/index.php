@@ -1,4 +1,4 @@
-<?php
+<?php			
 			$current_page_content = 
 				'<!-- ============INDEX========== -->' . "\n" .
 				'<div id="el-31" class="row row-70 artworks-container">' . "\n" .
@@ -9,25 +9,29 @@
 					'</div>' . "\n" .
 					'<!-- =====ARTWORKS=====-->' . "\n";
 		
-			$file_list = scandir('../novosti');
 			$news = array();
 			$news_file_names = array();
 			
-			foreach($file_list as $file) {
-				if(!is_dir('../novosti/' . $file)) {
-					array_push($news, file('../novosti/' . $file));
-					array_push($news_file_names, $file);
-				}
+			$hostname = 'localhost';
+			$username = 'maruk';
+			$password = 'fustafic';
+			$dbname = 'eart';
+			
+			try {
+				$conn = new PDO('mysql:dbname=' . $dbname . ';host=' . $hostname, $username, $password);
+				$conn->exec('set names utf8');
+			} catch(PDOException $ex) {
+				die('Greska');
 			}
 			
-			// remove previous details filesize
-			//$details_files = scandir('/novosti/details');
-			
-			usort ($news, function($first, $second) { 	
-						$date1 = date('Y-m-d H:i:s', strtotime($first[0]));
-						$date2 = date('Y-m-d H:i:s', strtotime($second[0]));
-						return $date1 < $date2;
-					});
+			$vijestSelectQuery = 
+				'SELECT 
+					datum, autor, naslov, urlslike, tekst, detalji, id
+				FROM
+					tblnovosti';
+			$preparedStatementVijesti = $conn->prepare($vijestSelectQuery, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
+			$preparedStatementVijesti->execute(array());
+			$news = $preparedStatementVijesti->fetchAll();
 			
 			foreach($news as $new) {
 				$has_details = FALSE;
@@ -37,20 +41,18 @@
 				$title = strtoupper(substr($title, 0, 1)) . strtolower(substr($title, 1)); 	
 				$image_url = htmlspecialchars($new[3], ENT_QUOTES, 'UTF-8');
 				
-				$news_text = '';
-				$i = 4;
-				for(; $i < count($new) && substr($new[$i], 0, 2) != '--'; $i++) {
-					$news_text .= $new[$i] . ' ';
-				}
+				$news_text = htmlspecialchars($new[4], ENT_QUOTES, 'UTF-8');
+				$details_text = htmlspecialchars($new[5], ENT_QUOTES, 'UTF-8');
+				
+				$novost_id = htmlspecialchars($new[6], ENT_QUOTES, 'UTF-8');
 				
 				//echo 
 					//$date_time . ' ' . $user_name . ' ' . $title . ' ' . 
 					//$image_url . ' ' . $news_text . "\n";
 				
-				$details_file_name = '../novosti/details/' . $news_file_names[array_search($new, $news)] . '-details.php';
+				$details_file_name = '../novosti/details/' . $title . '-details.php';
 				
-				if($i !== count($new)) {
-					++$i;
+				if($details_text !== '') {
 					$details = 
 						'<div id="el-31" class="row row-50 artworks-container">' .
 							'<div id="el-32" class="col col-15 el-32">' .
@@ -69,9 +71,7 @@
 									'</div>' . 
 									'<h2>Details:</h2>';
 							
-					for(; $i < count($new); $i++) {
-						$details .= $new[$i] . ' ';
-					}
+					$details .= $details_text;
 
 					$details .=
 						'<button onclick="loadPage(\'index.php\')">Back</button>';
@@ -92,7 +92,7 @@
 				
 				$current_page_content .=
 					'<!-- ============ARTWORK INSTANCE========== -->' . "\n" .
-					'<div class="row row-50 artwork-container">' . "\n" .
+					'<div class="row row-80 artwork-container">' . "\n" .
 						'<div class="col col-1">' . "\n" .
 						'</div>' . "\n" .
 						'<div class="col col-98">' . "\n" .
@@ -126,11 +126,21 @@
 									'<img alt="slika" src="' . $image_url . '" class="thumbnail-div-pic" />' . "\n" .
 								'</div>' . "\n" .
 							'</div>' . "\n" .
-							'<div class="row row-20 comment-box-container">' . "\n" .
-								'<textarea>Leave your comment here...</textarea>' . "\n" .
-							'</div>' . "\n" .
-							'<div class="row row-5">' . "\n" .
-							'</div>' . "\n" .
+							'<form action="main-divs-single-page/show-comments.php">' . "\n" .
+								'<input type="hidden" name="novost-id" value="' . $novost_id . '">' . "\n" .
+								'<input type="submit" value="' . '8 comments' . '">' .  "\n" .
+							'</form>' . "\n" .
+							'<form action="utils/leave-comment.php" method="post">' .
+								'<input type="hidden" name="novost-id" value="' . $novost_id . '">' .
+								'Autor:' . '<input type="text" name="autor">' . '<br/>' .  "\n" .
+								'Email:' . '<input type="text" name="email-autora">' . '<br/>' .  "\n" .
+								'<div class="row row-20 comment-box-container">' . "\n" .
+									'Komentar:' . '<textarea name="comment-text"></textarea>' . "\n" .
+								'</div>' . "\n" .
+								'<div class="row row-5">' . "\n" .
+								'</div>' . "\n" .
+								'<input type="submit" value="Comment">' . "\n" .
+							'</form>' .
 						'</div>' . "\n" .
 						'<div class="col col-1">' . "\n" .
 						'</div>' . "\n" .

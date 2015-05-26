@@ -69,6 +69,6 @@ function loadPage(pageName) {
 		}
 	};
 	
-	xmlhttp.open('GET', 'main-divs-single-page/' + pageName, true);
+	xmlhttp.open('GET', '/e-art/main-divs-single-page/' + pageName, true);
 	xmlhttp.send();
 }

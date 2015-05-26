@@ -3,13 +3,13 @@
 
 <head>
 	<meta charset="utf-8" />
-	<link rel="stylesheet" href="styles/common.css" />
-	<link rel="stylesheet" href="styles/rows.css" />
-	<link rel="stylesheet" href="styles/cols.css" />
-	<link rel="stylesheet" href="styles/index.css" />
-	<link rel="stylesheet" href="styles/tables.css" />
-	<link rel="stylesheet" href="styles/links.css" />
-	<link rel="stylesheet" href="styles/contact.css" />
+	<link rel="stylesheet" href="../styles/common.css" />
+	<link rel="stylesheet" href="../styles/rows.css" />
+	<link rel="stylesheet" href="../styles/cols.css" />
+	<link rel="stylesheet" href="../styles/index.css" />
+	<link rel="stylesheet" href="../styles/tables.css" />
+	<link rel="stylesheet" href="../styles/links.css" />
+	<link rel="stylesheet" href="../styles/contact.css" />
 	<title>Homepage</title>
 </head>
 
@@ -72,7 +72,7 @@
 			
 			<div id="el-22" class="col col-10 main-menu-item ">
 				<div class="col col-25">
-					<img class="search-icon-image" src="images/search-icon.png">
+					<img class="search-icon-image" src="../images/search-icon.png">
 				</div>
 				
 				<div class="col col-75">

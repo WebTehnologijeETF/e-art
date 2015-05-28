@@ -1,14 +1,10 @@
 <?php
+	require('db-data.php');
 	session_start();
 	if(isset($_SESSION['username'])) {
 		if(!isset($_REQUEST)) {
 			die('insufficient data.');
 		}
-		
-		$hostname = 'localhost';
-		$username = 'maruk';
-		$password = 'fustafic';
-		$dbname = 'eart';
 		
 		try {
 			$conn = new PDO('mysql:dbname=' . $dbname . ';host=' . $hostname, $username, $password);

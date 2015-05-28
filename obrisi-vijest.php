@@ -1,13 +1,10 @@
 <?php
+	require('db-data.php');
+	
 	session_start();
 	if(!isset($_SESSION['username'])) {
 		die('Not an admin. brrr');
 	} else {
-		$hostname = 'localhost';
-		$username = 'maruk';
-		$password = 'fustafic';
-		$dbname = 'eart';
-		
 		try {
 			$conn = new PDO('mysql:dbname=' . $dbname . ';host=' . $hostname, $username, $password);
 			$conn->exec('set names utf8');

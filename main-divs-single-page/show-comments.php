@@ -16,16 +16,11 @@
 <body>
 
 <?php
+	require('db-data.php');
 	if(!isset($_REQUEST['novost-id'])) {
 		die('Nije izabrana novost.');
 	} else {
 		$novost_id = htmlspecialchars($_REQUEST['novost-id'], ENT_QUOTES, 'UTF-8');
-	
-		$hostname = 'localhost';
-		$username = 'maruk';
-		$password = 'fustafic';
-		$dbname = 'eart';
-		
 		try {
 			$conn = new PDO('mysql:dbname=' . $dbname . ';host=' . $hostname, $username, $password);
 			$conn->exec('set names utf8');

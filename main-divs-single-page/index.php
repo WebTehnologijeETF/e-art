@@ -1,4 +1,6 @@
-<?php			
+<?php		
+			require('../db-data.php');
+	
 			$current_page_content = 
 				'<!-- ============INDEX========== -->' . "\n" .
 				'<div id="el-31" class="row row-70 artworks-container">' . "\n" .
@@ -12,15 +14,13 @@
 			$news = array();
 			$news_file_names = array();
 			
-			$hostname = 'localhost';
-			$username = 'maruk';
-			$password = 'fustafic';
-			$dbname = 'eart';
-			
 			try {
 				$conn = new PDO('mysql:dbname=' . $dbname . ';host=' . $hostname, $username, $password);
 				$conn->exec('set names utf8');
 			} catch(PDOException $ex) {
+				var_dump($ex);
+				echo
+					$ex->getMessage();
 				die('Greska');
 			}
 			

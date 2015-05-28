@@ -1,18 +1,15 @@
 <?php
+	require('db-data.php');
+
 	session_start();
 	if(isset($_SESSION['username'])) {
 		// vec ulogiran eheh
-		$username = $_SESSION['username'];
+		
 	} else if(!isset($_POST['username']) || !isset($_POST['password'])) {
 		die('Insufficient data.');
 	} else {
 		$request_username = $_POST['username'];
 		$request_password = $_POST['password'];
-		
-		$hostname = 'localhost';
-		$username = 'maruk';
-		$password = 'fustafic';
-		$dbname = 'eart';
 		
 		try {
 			$conn = new PDO('mysql:dbname=' . $dbname . ';host=' . $hostname, $username, $password);
@@ -165,6 +162,7 @@
 			// red checkk -- nwm
 			if(isset($_SESSION['username'])) {
 		?>	
+			<div class="simple-bordered-container">
 			<hr/>
 			<h1>Vijesti</h1>
 		
@@ -182,11 +180,6 @@
 				Izaberi vijest:
 				<select name="id-vijesti">
 					<?php
-						$hostname = 'localhost';
-						$username = 'maruk';
-						$password = 'fustafic';
-						$dbname = 'eart';
-						
 						try {
 							$conn = new PDO('mysql:dbname=' . $dbname . ';host=' . $hostname, $username, $password);
 							$conn->exec('set names utf8');
@@ -219,11 +212,6 @@
 				Izaberi vijest:
 				<select name="id-vijesti">
 					<?php
-						$hostname = 'localhost';
-						$username = 'maruk';
-						$password = 'fustafic';
-						$dbname = 'eart';
-						
 						try {
 							$conn = new PDO('mysql:dbname=' . $dbname . ';host=' . $hostname, $username, $password);
 							$conn->exec('set names utf8');
@@ -250,7 +238,9 @@
 				
 				<input type="submit" value="Brisi">
 			</form>
+			</div>
 			
+			<div class="simple-bordered-container">
 			<hr/>
 			<h1>Komentari</h1>
 			
@@ -259,11 +249,6 @@
 				Izaberi vijest:
 				<select name="id-vijesti">
 					<?php
-						$hostname = 'localhost';
-						$username = 'maruk';
-						$password = 'fustafic';
-						$dbname = 'eart';
-						
 						try {
 							$conn = new PDO('mysql:dbname=' . $dbname . ';host=' . $hostname, $username, $password);
 							$conn->exec('set names utf8');
@@ -290,6 +275,86 @@
 				
 				<input type="submit" value="Brisi">
 			</form>
+			</div>
+			
+			<div class="simple-bordered-container">
+			<hr/>
+			<h1>Korisnici</h1>
+		
+			<h2>Dodavanje korisnika</h2>
+			<form action="dodaj-korisnika.php" method="post">
+				Ime: <input type="text" name="ime-korisnika"> <br/>
+				Prezime: <input type="text" name="prezime-korisnika"> <br/>
+				Username: <input type="text" name="username-korisnika"> <br/>
+				Password: <input type="password" name="password-korisnika"> <br/>
+				Email: <input type="text" name="email-korisnika"> <br/>
+				<input type="submit" value="Dodaj">
+			</form>
+			
+			<h2>Editovanje korisnika</h2>
+			<form action="edituj-vijest.php" method="post">
+				Izaberi vijest:
+				<select name="id-vijesti">
+					<?php						
+						try {
+							$conn = new PDO('mysql:dbname=' . $dbname . ';host=' . $hostname, $username, $password);
+							$conn->exec('set names utf8');
+						} catch(PDOException $ex) {
+							die('Greska');
+						}
+						
+						$vijestSelectQuery = 
+							'SELECT 
+								datum, autor, naslov, urlslike, tekst, detalji, id
+							FROM
+								tblnovosti
+							order by
+								datum';
+						$preparedStatementVijesti = $conn->prepare($vijestSelectQuery, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
+						$preparedStatementVijesti->execute(array());
+						$news = $preparedStatementVijesti->fetchAll();
+						
+						foreach($news as $new) {
+							echo '<option name="id-vijesti" value="' . $new['id'] . '">' . $new['naslov'] . '</option>' . "\n";
+						}
+					?>
+				</select>
+				
+				<input type="submit" value="Edituj">
+			</form>
+			
+			<h2>Brisanje korisnika</h2>
+			<form action="obrisi-vijest.php" method="post">
+				Izaberi vijest:
+				<select name="id-vijesti">
+					<?php
+						try {
+							$conn = new PDO('mysql:dbname=' . $dbname . ';host=' . $hostname, $username, $password);
+							$conn->exec('set names utf8');
+						} catch(PDOException $ex) {
+							die('Greska');
+						}
+						
+						$vijestSelectQuery = 
+							'SELECT 
+								datum, autor, naslov, urlslike, tekst, detalji, id
+							FROM
+								tblnovosti
+							order by
+								datum';
+						$preparedStatementVijesti = $conn->prepare($vijestSelectQuery, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
+						$preparedStatementVijesti->execute(array());
+						$news = $preparedStatementVijesti->fetchAll();
+						
+						foreach($news as $new) {
+							echo '<option name="id-vijesti" value="' . $new['id'] . '">' . $new['naslov'] . '</option>' . "\n";
+						}
+					?>
+				</select>
+				
+				<input type="submit" value="Brisi">
+			</form>
+			</div>
 		<?php
 			}
 		?>

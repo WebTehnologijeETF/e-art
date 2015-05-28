@@ -1,4 +1,5 @@
 <?php
+	require('db-data.php');
 	session_start();
 	if(isset($_SESSION['username'])) {
 		if(!isset($_REQUEST)) {
@@ -6,16 +7,30 @@
 		}
 		
 		if(isset($_REQUEST['page-action'])) {
-			echo 'editovano.';
+			try {
+				$conn = new PDO('mysql:dbname=' . $dbname . ';host=' . $hostname, $username, $password);
+				$conn->exec('set names utf8');
+			} catch(PDOException $ex) {
+				die('Greska');
+			}
+			
+			$vijestSelectQuery = 
+				'update 
+					tblnovosti
+				set 
+				
+				where 
+					';
+			$preparedStatementVijesti = $conn->prepare($vijestSelectQuery, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
+			$preparedStatementVijesti->execute(
+				array(
+					':id_vijesti' => htmlspecialchars($_POST['id-vijesti'], ENT_QUOTES) 
+				)
+			);
 ?>
 			<a href="admin-panel.php">Admin panel</a>
 <?php
 		} else {
-			$hostname = 'localhost';
-			$username = 'maruk';
-			$password = 'fustafic';
-			$dbname = 'eart';
-			
 			try {
 				$conn = new PDO('mysql:dbname=' . $dbname . ';host=' . $hostname, $username, $password);
 				$conn->exec('set names utf8');

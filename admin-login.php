@@ -13,7 +13,7 @@
 	<title>Homepage</title>
 </head>
 
-<body  onload="loadPage('index.php');">
+<body>
 
 <div id="el-13" class="container">
 	
@@ -103,10 +103,33 @@
 	
 	<div id="ointaner-co" class="container">
 		
+
+<div id="el-31" class="row row-70 el-31">
+	<div id="el-32" class="col col-15 el-32">
+		left
 	</div>
 
+	<div id="el-33" class="col col-70 el-33">
+		<?php 
+		if(!isset($_SESSION['username'])) { ?>
+		<form action="admin-panel.php" method="post">
+			Username: <input type="text" name="username"> <br/>
+			Password: <input type="password" name="password"> <br/>
+			<input type="submit" value="Login">
+		</form>
+		<?php
+			} else {
+				echo 'Ulogovan sii.';
+			}
+		?>	
 	
+	</div>
+
+	<div id="el-42" class="col col-15 el-42">
+		right
+	</div>
 </div>
+
 <footer>
 	<script src="scripts/common.js"></script>
 		<script src="scripts/validation.js"></script>

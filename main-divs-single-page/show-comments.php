@@ -16,7 +16,7 @@
 <body>
 
 <?php
-	require('db-data.php');
+	require('../db-data.php');
 	if(!isset($_REQUEST['novost-id'])) {
 		die('Nije izabrana novost.');
 	} else {
@@ -55,7 +55,7 @@
 	}
 ?>
 
-<a href="/e-art/index.php">Back</a>
+<a href="/index.php">Back</a>
 
 </body>
 

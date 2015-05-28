@@ -292,9 +292,9 @@
 			</form>
 			
 			<h2>Editovanje korisnika</h2>
-			<form action="edituj-vijest.php" method="post">
-				Izaberi vijest:
-				<select name="id-vijesti">
+			<form action="edituj-korisnika.php" method="post">
+				Izaberi korisnika:
+				<select name="id-korisnika">
 					<?php						
 						try {
 							$conn = new PDO('mysql:dbname=' . $dbname . ';host=' . $hostname, $username, $password);
@@ -305,17 +305,19 @@
 						
 						$vijestSelectQuery = 
 							'SELECT 
-								datum, autor, naslov, urlslike, tekst, detalji, id
+								*
 							FROM
-								tblnovosti
-							order by
-								datum';
+								tblkorisnici
+							where
+								username != :username';
 						$preparedStatementVijesti = $conn->prepare($vijestSelectQuery, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
-						$preparedStatementVijesti->execute(array());
+						$preparedStatementVijesti->execute(array(
+							':username' => $_SESSION['username']
+						));
 						$news = $preparedStatementVijesti->fetchAll();
 						
 						foreach($news as $new) {
-							echo '<option name="id-vijesti" value="' . $new['id'] . '">' . $new['naslov'] . '</option>' . "\n";
+							echo '<option name="id-korisnika" value="' . $new['id'] . '">' . $new['username'] . '</option>' . "\n";
 						}
 					?>
 				</select>
@@ -324,9 +326,9 @@
 			</form>
 			
 			<h2>Brisanje korisnika</h2>
-			<form action="obrisi-vijest.php" method="post">
+			<form action="obrisi-korisnika.php" method="post">
 				Izaberi vijest:
-				<select name="id-vijesti">
+				<select name="id-korisnika">
 					<?php
 						try {
 							$conn = new PDO('mysql:dbname=' . $dbname . ';host=' . $hostname, $username, $password);
@@ -337,23 +339,25 @@
 						
 						$vijestSelectQuery = 
 							'SELECT 
-								datum, autor, naslov, urlslike, tekst, detalji, id
+								*
 							FROM
-								tblnovosti
-							order by
-								datum';
+								tblkorisnici
+							where 
+								username != :username';
 						$preparedStatementVijesti = $conn->prepare($vijestSelectQuery, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
-						$preparedStatementVijesti->execute(array());
+						$preparedStatementVijesti->execute(array(
+							':username' => $_SESSION['username']
+						));
 						$news = $preparedStatementVijesti->fetchAll();
 						
 						foreach($news as $new) {
-							echo '<option name="id-vijesti" value="' . $new['id'] . '">' . $new['naslov'] . '</option>' . "\n";
+							echo '<option name="id-korisnika" value="' . $new['id'] . '">' . $new['username'] . '</option>' . "\n";
 						}
 					?>
 				</select>
 				
 				<input type="submit" value="Brisi">
-			</form>
+			</form>
 			</div>
 		<?php
 			}

@@ -118,7 +118,7 @@
 									if($has_details === TRUE) {
 										$current_page_content .= 
 										'<div class="row row-25 artwork-details-link-container">' . "\n" .
-											'<a href="#" onclick="loadPage(\'' . $details_file_name . '\')">Details...</a>' . "\n" .
+											'<a href="novosti-details.php?vijest-id=' . $new['id'] . '">Details...</a>' . "\n" .
 										'</div>' . "\n";
 									}								
 								$current_page_content .= 
